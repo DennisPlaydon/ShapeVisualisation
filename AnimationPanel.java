@@ -66,7 +66,7 @@ public class AnimationPanel extends JComponent implements Runnable {
      */
     protected void createNewShape(int x, int y) {
         // get the margin of the frame
-        Insets insets = getInsets();
+        Insets insets = getInsets(); //represents the borders 
         int marginWidth = getWidth() - insets.left - insets.right;
         int marginHeight = getHeight() - insets.top - insets.bottom;
         // create a new shape dependent on all current properties and the mouse position
@@ -74,7 +74,7 @@ public class AnimationPanel extends JComponent implements Runnable {
         // Create a new shape and add it to the shapes ArrayList
         // currentShapeType = index from the combo box, 0 = rectangle, 1 = oval etc.
 
-
+		System.out.print("Hi x=" + x + " y=" + y + "index = ");
 
 
 

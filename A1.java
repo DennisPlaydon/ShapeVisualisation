@@ -2,22 +2,22 @@
  *  ============================================================================================
  *  A1.java : Extends JFrame and contains a panel where shapes move around on the screen.
  *  Also contains start and stop buttons that starts animation and stops animation respectively.
- *  YOUR UPI: ANSWER
+ *  YOUR UPI: dpla823
  *  ============================================================================================
  */
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.*; //advanced GUI set
+import java.awt.*; //used for basic UI and painting
 import java.awt.event.*;
 import javax.swing.border.*;
 import javax.swing.event.*;
-import java.util.ArrayList;
+import java.util.ArrayList; //slightly different array
 
 public class A1 extends JFrame {
     AnimationPanel panel;  // panel for bouncing area
     JButton startButton, stopButton, borderButton, fillButton;  //buttons to start and stop the animation
-    JTextField heightText, widthText;
-    JComboBox<ImageIcon> shapesComboBox, pathComboBox;
+    JTextField heightText, widthText; //JTextField - textfield for height and width
+    JComboBox<ImageIcon> shapesComboBox, pathComboBox; //drop down box
 
     /** main method for A1
      */
@@ -37,14 +37,14 @@ public class A1 extends JFrame {
         add(panel, BorderLayout.CENTER);
         add(setUpToolsPanel(), BorderLayout.NORTH);
         add(setUpButtons(), BorderLayout.SOUTH);
-        addComponentListener(
+        addComponentListener( //resets components on start
             new ComponentAdapter() { // resize the frame and reset all margins for all shapes
                 public void componentResized(ComponentEvent componentEvent) {
                     panel.resetMarginSize();
             }
         });
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 500);
+        setSize(800, 500); //default values
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = getSize();
         setLocation((d.width - frameSize.width) / 2, (d.height - frameSize.height) / 2);
@@ -81,7 +81,7 @@ public class A1 extends JFrame {
             }
         });
         //Set up the height TextField
-        heightText = new JTextField("50");
+        heightText = new JTextField("50"); //default height
         heightText.setToolTipText("Set Height");
         heightText.addActionListener( new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -98,7 +98,7 @@ public class A1 extends JFrame {
             }
         });
         //Set up the width TextField
-        widthText = new JTextField("50");
+        widthText = new JTextField("50"); //default width
         widthText.setToolTipText("Set Width");
         widthText.addActionListener( new ActionListener() {
             public void actionPerformed(ActionEvent e) {

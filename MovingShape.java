@@ -194,8 +194,4 @@ public abstract class MovingShape {
                topLeft.y = 0;
        }
     }
-    
-    public class MovingRectangle extends AnimationPanel {
-    	
-    }
 }
