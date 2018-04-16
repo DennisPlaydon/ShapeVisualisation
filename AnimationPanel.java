@@ -76,7 +76,10 @@ public class AnimationPanel extends JComponent implements Runnable {
 
 		System.out.print("Hi x=" + x + " y=" + y + "index = ");
 
-
+		MovingShape shape1 = new MovingShape(x, y, 5, 5, 50, 50, Color.red, 0);
+		
+		System.out.print(shape1.getX());
+		
 
 
 
