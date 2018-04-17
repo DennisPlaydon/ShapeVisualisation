@@ -74,12 +74,16 @@ public class AnimationPanel extends JComponent implements Runnable {
         // Create a new shape and add it to the shapes ArrayList
         // currentShapeType = index from the combo box, 0 = rectangle, 1 = oval etc.
 
+		/*
 		System.out.print("Hi x=" + x + " y=" + y + "index = ");
 
 		MovingShape shape1 = new MovingShape(x, y, 5, 5, 50, 50, Color.red, 0);
+		shapes.add(shape1);
 		
 		System.out.print(shape1.getX());
+		*/
 		
+		shapes.add(new MovingRectangle());
 
 
 
