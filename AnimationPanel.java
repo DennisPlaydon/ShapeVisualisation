@@ -81,9 +81,19 @@ public class AnimationPanel extends JComponent implements Runnable {
 		shapes.add(shape1);
 		
 		System.out.print(shape1.getX());
-		*/
-		
-		shapes.add(new MovingRectangle());
+		     * @param x         the x-coordinate of the new shape
+     * @param y        the y-coordinate of the new shape
+     * @param w         the width of the new shape
+     * @param h         the height of the new shape
+     * @param mw         the margin width of the animation panel
+     * @param mh        the margin height of the animation panel
+     * @param c        the colour of the new shape
+     * @param typeOfPath         the path of the new shape
+	 
+	 */
+		//MovingShape newRect = new MovingRectangle(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentBorderColor, currentFillColor, pathType);
+		MovingShape newRect = new MovingRectangle(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, 0);
+		shapes.add(newRect);
 
 
 
