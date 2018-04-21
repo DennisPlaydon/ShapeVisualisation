@@ -66,7 +66,7 @@ public class AnimationPanel extends JComponent implements Runnable {
      */
     protected void createNewShape(int x, int y) {
         // get the margin of the frame
-        Insets insets = getInsets(); //represents the borders 
+        Insets insets = getInsets();
         int marginWidth = getWidth() - insets.left - insets.right;
         int marginHeight = getHeight() - insets.top - insets.bottom;
         // create a new shape dependent on all current properties and the mouse position
@@ -74,24 +74,9 @@ public class AnimationPanel extends JComponent implements Runnable {
         // Create a new shape and add it to the shapes ArrayList
         // currentShapeType = index from the combo box, 0 = rectangle, 1 = oval etc.
 
-		/*
-		
-		System.out.print(shape1.getX());
-		     * @param x         the x-coordinate of the new shape
-     * @param y        the y-coordinate of the new shape
-     * @param w         the width of the new shape
-     * @param h         the height of the new shape
-     * @param mw         the margin width of the animation panel
-     * @param mh        the margin height of the animation panel
-     * @param c        the colour of the new shape
-     * @param typeOfPath         the path of the new shape
-	 
-	*/
-		MovingShape newRect = new MovingRectangle(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
-		shapes.add(newRect);
-	
-		//MovingShape newOval = new MovingOval(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
-		//shapes.add(newOval);
+
+
+
 
 
 
@@ -119,12 +104,13 @@ public class AnimationPanel extends JComponent implements Runnable {
      * @param t    the new path type
      */
     public void setCurrentPathType(int index) {
-        currentShapeType = index;
+        currentPath = index;
 		for (MovingShape currentShape: shapes)
 			if ( currentShape.isSelected())
 				currentShape.setPath(index);
 
     }
+
 
 	/** get the current width
 	 * @return currentWidth - the width value

@@ -3,13 +3,13 @@ import java.awt.*;
 import java.util.*;
 import java.awt.event.*;
 
-public class MovingRectangle extends MovingShape {
+public class MovingOval extends MovingShape {
 		
-	public MovingRectangle() {
+	public MovingOval() {
 		super();
 	}
 	
-	public MovingRectangle(int x, int y, int w, int h, int mw, int mh, Color c, Color fc, int pathType) {
+	public MovingOval(int x, int y, int w, int h, int mw, int mh, Color c, Color fc, int pathType) {
 		/** constuctor to create a shape
      * @param x         the x-coordinate of the new shape
      * @param y        the y-coordinate of the new shape
@@ -24,17 +24,20 @@ public class MovingRectangle extends MovingShape {
 	}
 		
 	public void draw(Graphics g) {
+		System.out.print("Draw method");
+		/*
 		g.setColor(super.borderColor);
-		g.fillRect(super.getX(), super.getY(), super.width, super.height);
+		g.fillOval(super.getX(), super.getY(), super.width, super.height);
 		g.setColor(super.fillColor);
-		g.drawRect(super.getX(), super.getY(), super.width, super.height);
+		g.drawOval(super.getX(), super.getY(), super.width, super.height);
+		*/
 	}
 	
 	
 	public boolean contains(Point p) {
-		if ((p.y < super.getY()) && (p.x > super.getX()) && (p.y > (super.getY() - super.height)) && (p.x < (super.getX() + super.width))) {
-			return true;
-		}
-		return false;
+		Point EndPt = new Point(super.getX() + super.width, super.getY() + super.height);
+		double dx = (2 * p.x - x - EndPt.x) / (double) super.width;
+		double dy = (2 * p.y - y - EndPt.y) / (double) super.height;
+		return dx * dx + dy * dy < 1.0;
 	}
 }
