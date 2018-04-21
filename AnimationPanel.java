@@ -99,6 +99,10 @@ public class AnimationPanel extends JComponent implements Runnable {
 			case 2:
 				MovingShape newChecker = new MovingChecker(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
 				shapes.add(newChecker);
+			case 3:
+				MovingShape newGradient = new MovingGradient(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
+				shapes.add(newGradient);
+			
 		}
 		//MovingShape newRect = new MovingRectangle(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
 		//shapes.add(newRect);
