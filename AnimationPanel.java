@@ -87,8 +87,21 @@ public class AnimationPanel extends JComponent implements Runnable {
      * @param typeOfPath         the path of the new shape
 	 
 	*/
-		MovingShape newRect = new MovingRectangle(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
-		shapes.add(newRect);
+		switch (currentShapeType) {
+			case 0: 
+				MovingShape newRect = new MovingRectangle(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
+				shapes.add(newRect);
+				break;
+			case 1:
+				MovingShape newOval = new MovingOval(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
+				shapes.add(newOval);
+				break;
+			case 2:
+				MovingShape newChecker = new MovingChecker(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
+				shapes.add(newChecker);
+		}
+		//MovingShape newRect = new MovingRectangle(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
+		//shapes.add(newRect);
 	
 		//MovingShape newOval = new MovingOval(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
 		//shapes.add(newOval);

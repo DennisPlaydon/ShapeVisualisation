@@ -24,20 +24,17 @@ public class MovingOval extends MovingShape {
 	}
 		
 	public void draw(Graphics g) {
-		System.out.print("Draw method");
-		/*
 		g.setColor(super.borderColor);
 		g.fillOval(super.getX(), super.getY(), super.width, super.height);
 		g.setColor(super.fillColor);
 		g.drawOval(super.getX(), super.getY(), super.width, super.height);
-		*/
 	}
 	
 	
 	public boolean contains(Point p) {
 		Point EndPt = new Point(super.getX() + super.width, super.getY() + super.height);
-		double dx = (2 * p.x - x - EndPt.x) / (double) super.width;
-		double dy = (2 * p.y - y - EndPt.y) / (double) super.height;
+		double dx = (2 * p.x - super.getX() - EndPt.x) / (double) super.width;
+		double dy = (2 * p.y - super.getY() - EndPt.y) / (double) super.height;
 		return dx * dx + dy * dy < 1.0;
 	}
 }
