@@ -11,8 +11,12 @@ public class MovingChecker extends MovingRectangle {
 	private double xNumBlock;
 	private double yNumBlock;
 	
-	public MovingChecker(int x, int y, int w, int h, int mw, int mh, Color c, Color fc, int pathType) {
-		super(x, y, w, h, mw, mh, c, fc, pathType);
+	public MovingChecker() {
+		super();
+	}
+	
+	public MovingChecker(int topLeftX, int topLeftY, int width, int height, int marginWidth, int marginHeight, Color fillColor, Color borderColor, int pathType) {
+		super(topLeftX, topLeftY, width, height, marginWidth, marginHeight, fillColor, borderColor, pathType);
 		int randomNum = ThreadLocalRandom.current().nextInt(2, 11);
 		xNumBlock = randomNum;
 		yNumBlock = randomNum;

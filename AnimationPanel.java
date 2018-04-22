@@ -73,20 +73,6 @@ public class AnimationPanel extends JComponent implements Runnable {
         //complete this:
         // Create a new shape and add it to the shapes ArrayList
         // currentShapeType = index from the combo box, 0 = rectangle, 1 = oval etc.
-
-		/*
-		
-		System.out.print(shape1.getX());
-		     * @param x         the x-coordinate of the new shape
-     * @param y        the y-coordinate of the new shape
-     * @param w         the width of the new shape
-     * @param h         the height of the new shape
-     * @param mw         the margin width of the animation panel
-     * @param mh        the margin height of the animation panel
-     * @param c        the colour of the new shape
-     * @param typeOfPath         the path of the new shape
-	 
-	*/
 		switch (currentShapeType) {
 			case 0: 
 				MovingShape newRect = new MovingRectangle(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
@@ -99,29 +85,16 @@ public class AnimationPanel extends JComponent implements Runnable {
 			case 2:
 				MovingShape newChecker = new MovingChecker(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
 				shapes.add(newChecker);
+				break;
 			case 3:
 				MovingShape newGradient = new MovingGradient(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
 				shapes.add(newGradient);
-			
+				break;
+			case 4:
+				MovingShape newPattern = new MovingPattern(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
+				shapes.add(newPattern);
+				break;
 		}
-		//MovingShape newRect = new MovingRectangle(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
-		//shapes.add(newRect);
-	
-		//MovingShape newOval = new MovingOval(x, y, currentWidth, currentHeight, marginWidth, marginHeight, currentFillColor, currentBorderColor, currentPathType);
-		//shapes.add(newOval);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 
