@@ -136,6 +136,10 @@ public abstract class MovingShape {
             case 0 : {
                 path = new FallingPath();
                 break;
+			}
+			case 1: {
+				path = new CirclingPath();
+				break;
             }
         }
     }
@@ -195,28 +199,30 @@ public abstract class MovingShape {
 		}
 		
     }
-	
 	public class CirclingPath extends MovingPath {
-        private double am = 0, stx =0, sinDeltax = 0;
+        private double moveSpeed = 0, initialX = 0;
 
         /** constructor to initialise values for a falling path
         */
         public CirclingPath() {
-            am = Math.random() * 20; //set amplitude variables
-            stx = 0.5; //set step variables
-            deltaY = 5;
-            sinDeltax = 0;
+            moveSpeed = 5;
+			initialX = topLeft.x;
 		}
 
        /** move the shape
        */
 		public void move() {
-           sinDeltax = sinDeltax + stx;
-           topLeft.x = (int) Math.round(topLeft.x + am * Math.sin(sinDeltax));
-           topLeft.y = topLeft.y + deltaY;
-           if (topLeft.y > marginHeight) // if it reaches the bottom of the frame, start again from the top
-               topLeft.y = 0;
+			topLeft.x += moveSpeed;
+			topLeft.y += moveSpeed;
+			initialX += 0.5;
+			//topLeft.x > marginWidth || 
+			if (topLeft.x > marginWidth || topLeft.y > marginHeight) {
+				if (initialX > marginWidth) {
+					initialX = 0;
+				}
+				topLeft.x = (int) initialX;
+				topLeft.y = 0;
+			}
 		}
-		
     }
 }
