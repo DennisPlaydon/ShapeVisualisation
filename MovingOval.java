@@ -18,6 +18,7 @@ public class MovingOval extends MovingShape {
 		g.fillOval(super.getX(), super.getY(), super.width, super.height);
 		g.setColor(super.fillColor);
 		g.drawOval(super.getX(), super.getY(), super.width, super.height);
+		drawHandles(g);
 	}
 	
 	

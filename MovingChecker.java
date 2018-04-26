@@ -40,6 +40,7 @@ public class MovingChecker extends MovingRectangle {
 				graphic2d.fill(rect);
 			}
 		}
+		drawHandles(g);
 	}
 	
 }

@@ -138,10 +138,6 @@ public abstract class MovingShape {
                 break;
 			}
 			case 1: {
-				path = new CirclingPath();
-				break;
-            }
-			case 1: {
 				path = new CirclePath();
 				break;
 			}

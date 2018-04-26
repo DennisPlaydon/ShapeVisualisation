@@ -18,11 +18,12 @@ public class MovingRectangle extends MovingShape {
 		g.fillRect(super.getX(), super.getY(), super.width, super.height);
 		g.setColor(super.fillColor);
 		g.drawRect(super.getX(), super.getY(), super.width, super.height);
+		drawHandles(g);
 	}
 	
 	
 	public boolean contains(Point p) {
-		if ((p.y < super.getY()) && (p.x > super.getX()) && (p.y > (super.getY() - super.height)) && (p.x < (super.getX() + super.width))) {
+		if ((p.y > super.getY()) && (p.x > super.getX()) && (p.y < (super.getY() + super.height)) && (p.x < (super.getX() + super.width))) {
 			return true;
 		}
 		return false;

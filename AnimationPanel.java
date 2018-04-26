@@ -96,9 +96,6 @@ public class AnimationPanel extends JComponent implements Runnable {
 				break;
 		}
 		
-		//MovingShape newRect = new MovingRectangle();
-		//shapes.add(newRect);
-
     }
 
     /** set the current shape type
