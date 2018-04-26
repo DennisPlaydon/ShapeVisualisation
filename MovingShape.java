@@ -137,6 +137,10 @@ public abstract class MovingShape {
                 path = new FallingPath();
                 break;
             }
+			case 1: {
+				path = new CirclePath();
+				break;
+			}
         }
     }
 
@@ -193,5 +197,32 @@ public abstract class MovingShape {
            if (topLeft.y > marginHeight) // if it reaches the bottom of the frame, start again from the top
                topLeft.y = 0;
        }
+    }
+	
+	public class CirclePath extends MovingPath {
+        private double moveSpeed = 0, initialX = 0;
+
+        /** constructor to initialise values for a falling path
+        */
+        public CirclePath() {
+            moveSpeed = 5;
+			initialX = topLeft.x;
+		}
+
+		/** move the shape
+		*/
+		public void move() {
+			initialX += 1;
+			topLeft.x += moveSpeed;
+			topLeft.y += moveSpeed;
+			if (topLeft.y > marginHeight || topLeft.x > marginWidth) {
+				if (initialX > marginWidth) {
+					initialX = 0;
+				}
+				topLeft.x = (int) initialX;
+				topLeft.y = 0;
+			}
+			
+		}
     }
 }

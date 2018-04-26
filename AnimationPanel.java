@@ -109,7 +109,7 @@ public class AnimationPanel extends JComponent implements Runnable {
      * @param t    the new path type
      */
     public void setCurrentPathType(int index) {
-        currentShapeType = index;
+        currentPathType = index;
 		for (MovingShape currentShape: shapes)
 			if ( currentShape.isSelected())
 				currentShape.setPath(index);
