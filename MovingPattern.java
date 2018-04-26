@@ -61,19 +61,43 @@ public class MovingPattern extends MovingRectangle {
 		//cast graphics into graphics 2D
 		Graphics2D graphic2d = (Graphics2D) g;
 		//loop through and create circles
-		for (int x=1; x < 37; x++) {		
-			Rectangle shape = new Rectangle(super.getX(), super.getY(), super.width, super.height);
+		int bool = 0;
+		for (int x=1; x < 37; x++) {			
+			Rectangle2D shape = new Rectangle2D.Double(super.getX(), super.getY(), super.width/2, super.height/2);
 			final AffineTransform saved = graphic2d.getTransform();
 			final AffineTransform rotate = AffineTransform.getRotateInstance(Math.toRadians(x*10), super.getX(), super.getY());
 			graphic2d.transform(rotate);
-			if (x%2 == 0) {
+			if (x%9 == 0) {
+				if (bool == 0) {
+					graphic2d.setPaint(super.borderColor);
+					bool = 1;
+				}
+				else {
+					graphic2d.setPaint(super.fillColor);
+					bool = 0;
+				}
+			}
+			else {
+				graphic2d.setPaint(super.fillColor);
+			}
+				
+			
+			graphic2d.fill(shape);
+			graphic2d.setTransform(saved);
+			/*
+			if (x == 37) {
+				GradientPaint newGradient = new GradientPaint(super.getX()+super.width, super.getY(), super.fillColor, super.getX(), super.getY() + super.height, super.borderColor);
+				graphic2d.setPaint(newGradient);
+			}
+			else if (x%2 == 0) {
+				GradientPaint newGradient = new GradientPaint(super.getX(), super.getY(), super.fillColor, super.getX(), super.getY() + super.height, super.borderColor);
+				graphic2d.setPaint(newGradient);
 				graphic2d.setPaint(super.fillColor);
 			}
 			else {
 				graphic2d.setPaint(super.borderColor);
 			}
-			graphic2d.fill(shape);
-			graphic2d.setTransform(saved);
+			*/
 			
 
 		}
