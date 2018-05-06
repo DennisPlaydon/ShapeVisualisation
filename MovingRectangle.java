@@ -1,3 +1,12 @@
+/*
+ *  ============================================================================================
+ *  MovingRectangle.java : Extends MovingShape. Basic rectangle class that is used as a super class 
+ *  for others
+ *  Contains draw method and contains to check if click is within box
+ *  YOUR UPI: dpla823
+ *  ============================================================================================
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
@@ -14,8 +23,10 @@ public class MovingRectangle extends MovingShape {
 	}
 		
 	public void draw(Graphics g) {
+		//create border colour
 		g.setColor(super.borderColor);
 		g.fillRect(super.getX(), super.getY(), super.width, super.height);
+		//fills with user defined colour.
 		g.setColor(super.fillColor);
 		g.drawRect(super.getX(), super.getY(), super.width, super.height);
 		drawHandles(g);
@@ -23,6 +34,7 @@ public class MovingRectangle extends MovingShape {
 	
 	
 	public boolean contains(Point p) {
+		//first contains class that many other subclasses will link to
 		if ((p.y > super.getY()) && (p.x > super.getX()) && (p.y < (super.getY() + super.height)) && (p.x < (super.getX() + super.width))) {
 			return true;
 		}

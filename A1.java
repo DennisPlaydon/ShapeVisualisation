@@ -2,7 +2,7 @@
  *  ============================================================================================
  *  A1.java : Extends JFrame and contains a panel where shapes move around on the screen.
  *  Also contains start and stop buttons that starts animation and stops animation respectively.
- *  YOUR UPI: ANSWER
+ *  YOUR UPI: dpla823
  *  ============================================================================================
  */
 
@@ -12,6 +12,7 @@ import java.awt.event.*;
 import javax.swing.border.*;
 import javax.swing.event.*;
 import java.util.ArrayList;
+import java.lang.Math;
 
 public class A1 extends JFrame {
     AnimationPanel panel;  // panel for bouncing area

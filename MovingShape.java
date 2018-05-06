@@ -199,45 +199,15 @@ public abstract class MovingShape {
 		}
 		
     }
-	public class CirclingPath extends MovingPath {
-        private double moveSpeed = 0, initialX = 0;
-
-        /** constructor to initialise values for a falling path
-        */
-        public CirclingPath() {
-            moveSpeed = 5;
-			initialX = topLeft.x;
-		}
-
-       /** move the shape
-       */
-		public void move() {
-			topLeft.x += moveSpeed;
-			topLeft.y += moveSpeed;
-			initialX += 0.5;
-			//topLeft.x > marginWidth || 
-			if (topLeft.x > marginWidth || topLeft.y > marginHeight) {
-				if (initialX > marginWidth) {
-					initialX = 0;
-				}
-				topLeft.x = (int) initialX;
-				topLeft.y = 0;
-			}
-		}
-    }
 	
 	public class CirclePath extends MovingPath {
         private double moveSpeed = 0, initialX = 0;
 
-        /** constructor to initialise values for a falling path
-        */
         public CirclePath() {
             moveSpeed = 5;
 			initialX = topLeft.x;
 		}
 
-		/** move the shape
-		*/
 		public void move() {
 			initialX += 1;
 			topLeft.x += moveSpeed;

@@ -1,3 +1,11 @@
+/*
+ *  ============================================================================================
+ *  MovingPattern.java : Extends MovingRectangle and uses for loop to make cool pattern
+ *  User can change colours, size and various other properties
+ *  YOUR UPI: dpla823
+ *  ============================================================================================
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Graphics;
@@ -10,43 +18,6 @@ import java.util.*;
 import java.awt.event.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-/*
-public class MovingPattern extends MovingOval {
-	private double numCircles;
-	
-	public MovingPattern() {
-		super();
-	}
-	
-	public MovingPattern(int topLeftX, int topLeftY, int width, int height, int marginWidth, int marginHeight, Color fillColor, Color borderColor, int pathType) {
-		super(topLeftX, topLeftY, width, height, marginWidth, marginHeight, fillColor, borderColor, pathType);
-		//create random int for how many circles to create later
-		int randomNum = ThreadLocalRandom.current().nextInt(6, 11);
-		numCircles = randomNum;
-	}
-	
-	public void draw(Graphics g) {
-		//cast graphics into graphics 2D
-		Graphics2D graphic2d = (Graphics2D) g;
-		//loop through and create circles
-		for (int x=0; x < numCircles; x++) {
-			//reduces the width and height by 10(x)% every iteration
-			Ellipse2D.Double oval = new Ellipse2D.Double(super.getX() + x*(super.width/numCircles), super.getY() + x*(super.height/numCircles), super.width*(1-(x*0.1)), super.height*(1-(x*0.1)));		
-			//alternates colour every iteration
-			if (x%2 == 0) {
-				graphic2d.setPaint(super.borderColor);
-			}
-			else {
-				graphic2d.setPaint(super.fillColor);
-			}
-			graphic2d.fill(oval);
-		}
-		drawHandles(g);
-		
-	}
-	
-}
-*/
 public class MovingPattern extends MovingRectangle {
 	private double numCircles;
 	
@@ -62,11 +33,14 @@ public class MovingPattern extends MovingRectangle {
 		Graphics2D graphic2d = (Graphics2D) g;
 		//loop through and create circles
 		int bool = 0;
+		//makes 36 squares
 		for (int x=1; x < 37; x++) {			
 			Rectangle2D shape = new Rectangle2D.Double(super.getX(), super.getY(), super.width/2, super.height/2);
 			final AffineTransform saved = graphic2d.getTransform();
+			//converts 10 to radians and rotates shape by 10 degrees
 			final AffineTransform rotate = AffineTransform.getRotateInstance(Math.toRadians(x*10), super.getX(), super.getY());
 			graphic2d.transform(rotate);
+			//paints a different square colour every 9 squares
 			if (x%9 == 0) {
 				if (bool == 0) {
 					graphic2d.setPaint(super.borderColor);
@@ -84,25 +58,17 @@ public class MovingPattern extends MovingRectangle {
 			
 			graphic2d.fill(shape);
 			graphic2d.setTransform(saved);
-			/*
-			if (x == 37) {
-				GradientPaint newGradient = new GradientPaint(super.getX()+super.width, super.getY(), super.fillColor, super.getX(), super.getY() + super.height, super.borderColor);
-				graphic2d.setPaint(newGradient);
-			}
-			else if (x%2 == 0) {
-				GradientPaint newGradient = new GradientPaint(super.getX(), super.getY(), super.fillColor, super.getX(), super.getY() + super.height, super.borderColor);
-				graphic2d.setPaint(newGradient);
-				graphic2d.setPaint(super.fillColor);
-			}
-			else {
-				graphic2d.setPaint(super.borderColor);
-			}
-			*/
-			
-
 		}
-		//drawHandles(g);
+		drawHandles(g);
 		
+	}
+	
+	public boolean contains(Point p) {
+		//needs to make new contains since first square starts in centre of the pattern
+		if ((p.y > (super.getY() - super.height/2)) && (p.x > (super.getX() - width/2)) && (p.y < (super.getY() + super.height/2 + super.height)) && (p.x < (super.getX() - width/2 + super.width))) {
+			return true;
+		}
+		return false;
 	}
 	
 }
